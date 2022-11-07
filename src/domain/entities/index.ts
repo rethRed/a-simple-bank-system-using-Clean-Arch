@@ -1,5 +1,5 @@
 export * from "./users"
-export * from "./deposit-money"
+export * from "./deposit-money-log"
 
 
 

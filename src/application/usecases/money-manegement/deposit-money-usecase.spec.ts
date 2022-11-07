@@ -1,11 +1,11 @@
 import { describe, expect, it, test } from "vitest";
 import { CreateUser, CreateUserInput } from "@/application/usecases/users" 
 import { DepositMoneyUseCase } from "@/application/usecases/money-manegement" 
-import { InMemoryUsersRepository, InMemoryDepositRepository } from "@/tests/repositories"
+import { InMemoryUsersRepository, InMemoryDepositRepositoryLog } from "@/tests/repositories"
 
 
 type sutTypes = {
-    depositRepo: InMemoryDepositRepository,
+    depositRepo: InMemoryDepositRepositoryLog,
     createUserRepo: InMemoryUsersRepository ,
     createUser: CreateUser,
     sut: DepositMoneyUseCase
@@ -15,9 +15,9 @@ type sutTypes = {
 const makeSut = (): sutTypes => {
     const createUserRepo = new InMemoryUsersRepository()
     const createUser = new CreateUser(createUserRepo)
-
-    const depositRepo = new InMemoryDepositRepository()
-    const sut = new DepositMoneyUseCase(depositRepo)
+    
+    const depositRepo = new InMemoryDepositRepositoryLog()
+    const sut = new DepositMoneyUseCase(createUserRepo)
 
 
     return {
@@ -52,8 +52,10 @@ describe("test deposit-usecase", () => {
                 user: user
             })
 
+            createUserRepo.save(user)
+
             expect(user.getProps().balance).toBe(1)
-            expect(deposit.value).toBe(1)
+
 
         }else{
             throw new Error("user not found")

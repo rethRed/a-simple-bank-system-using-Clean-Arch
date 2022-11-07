@@ -1,6 +1,6 @@
 
 import { Users } from "@/domain/entities/users";
-import { IDepositMoneyRepository } from "@/application/repositories/deposit-money-repository";
+import { IUsersRepository } from "@/application/repositories";
 import { DepositMoney } from "@/domain/entities";
 
 export type DepositMoneyInput = {
@@ -19,17 +19,11 @@ export type DepositMoneyOutput = {
 export class DepositMoneyUseCase {
 
     constructor(
-        private depositRepository: IDepositMoneyRepository
+        private usersRepository: IUsersRepository
     ){}
 
-    async execute(props: DepositMoneyInput): Promise<DepositMoneyOutput>{
-        
-        const deposit = DepositMoney.deposit({
-            ...props
-        })
-
-        await this.depositRepository.insert(deposit)
-
-        return deposit.getProps()
+    async execute({user, value}: DepositMoneyInput): Promise<void>{
+        user.depositMoney(value)
+        this.usersRepository.save(user)
     }
 }

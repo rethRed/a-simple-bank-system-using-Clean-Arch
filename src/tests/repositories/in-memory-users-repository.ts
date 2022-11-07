@@ -27,5 +27,22 @@ export class InMemoryUsersRepository extends InMemoryRepository implements IUser
 
     }
 
+    async save(user: Users): Promise<void>{
+        
+        const index = this.items.findIndex(curUser => {
+            return curUser.getId() == user.getId()
+            
+        })
+
+        if(index < 0){
+            throw new Error("user not found "+index)
+        }
+
+        this.items[index] = user
+    }
+
+    async listAll(): Promise<Users[]> {
+        return this.items
+    }
 
 }

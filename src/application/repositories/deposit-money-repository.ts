@@ -1,12 +1,12 @@
 import { DepositMoney, Users } from "@/domain/entities"
 
-export interface IDepositMoneyRepository {
+export interface DepositRepositoryLog {
     insert(depositMoneyEntity: DepositMoney): Promise<DepositMoney>
 }
 
 
 
-export namespace IDepositMoneyRepository{
+export namespace DepositRepositoryLog{
 
     export type DepositMoneyOutput = {
         value: number,
