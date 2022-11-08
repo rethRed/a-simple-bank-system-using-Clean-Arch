@@ -2,11 +2,11 @@
 
 I am using this project to improve my abilities in clean Architecture and i've improved a lot since the beging. 
 
-This project has a simple infra implentation using ```express.js``` in case you want to test it.
+This project has a simple infra implentation using ```express.js``` in case you want to test it. Be aware that the Repository used to store the users is a ```InMemoryRepository```  .
 
 You just have to type ```npm run dev``` on the root folder in order to run it.
 
-<h1>Useabilities</h1>
+<h1>Use-cases</h1>
 
 <h2>Create User</h2>
 
