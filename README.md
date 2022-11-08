@@ -1,6 +1,6 @@
 # a-simple-bank-system-using-Clean-Arch
 
-I am using this project to improve my abilities in clean Architecture and i've improved a lot since the beging. 
+I am using this project to improve my abilities in clean Architecture and i've improved a lot since the beging and i am doubling down to improve even more. 
 
 This project has a simple infra implentation using ```express.js``` in case you want to test it. Be aware that the Repository used to store the users is a ```InMemoryRepository```  .
 
