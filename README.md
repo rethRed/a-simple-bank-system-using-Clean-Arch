@@ -1,6 +1,6 @@
 # a-simple-bank-system-using-Clean-Arch
 
-This is a simple bank system using Clean Architecture to structure my project.
+I am using this project to improve my abilities in clean Architecture and i've improved a lot since the beging. 
 
 This project has a simple infra implentation using ```express.js``` in case you want to test it.
 
